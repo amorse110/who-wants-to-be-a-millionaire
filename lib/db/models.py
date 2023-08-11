@@ -34,8 +34,8 @@ class Question(Base):
 
     id = Column(Integer, primary_key = True)
     content = Column(String)
-    category_id = Column(Integer)
-    difficulty_id = Column(Integer)
+    category_id = Column(Integer, ForeignKey('categories.id'))
+    difficulty_id = Column(Integer, ForeignKey('difficulties.id'))
 
     answers = relationship('Answer', backref = "question")
     game_questions = relationship('GameQuestion', back_populates = 'question')
@@ -59,3 +59,5 @@ class Difficulty(Base):
     
     id = Column(Integer, primary_key = True)
     level = Column(String)
+    
+    questions = relationship('Question', backref = 'difficulty')
