@@ -1,6 +1,7 @@
-from sqlalchemy import Column, Integer, String, Boolean, DateTime, ForeignKey
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.ext.associationproxy import association_proxy
 
 Base = declarative_base()
 
@@ -15,18 +16,29 @@ class Game(Base):
     extra_time = Column(Boolean)
     double_dip = Column(Boolean)
 
-    questions = relationship('Question', backref = 'game')
+    game_questions = relationship('GameQuestion', back_populates = 'game')
+    questions = association_proxy("game_questions", "question")
+
+class GameQuestion(Base):
+    __tablename__ = "game_questions"
+
+    id = Column(Integer, primary_key = True)
+    game_id = Column(Integer, ForeignKey('games.id'))
+    question_id = Column(Integer, ForeignKey('questions.id'))
+
+    game = relationship('Game', back_populates = 'game_questions')
+    question = relationship('Question', back_populates = 'game_questions')
 
 class Question(Base):
     __tablename__ = "questions"
 
     id = Column(Integer, primary_key = True)
-    game_id = Column(Integer, ForeignKey('games.id'))
     content = Column(String)
     category_id = Column(Integer)
     difficulty_id = Column(Integer)
 
     answers = relationship('Answer', backref = "question")
+    game_questions = relationship('GameQuestion', back_populates = 'question')
 
 class Answer(Base):
     __tablename__ = "answers"
