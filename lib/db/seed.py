@@ -28,62 +28,40 @@ if __name__ == '__main__':
 
     session.add_all([category_animals, category_history, category_science])
     session.commit()
-
-    # question_data = [
-    #     {"content":"What are baby kangaroos called?", 'category_id':category_animals.id, 'difficulty_id': difficulty_easy.id},
-    #     {'content':'sample question ae', 'category_id':category_animals.id, 'difficulty_id': difficulty_easy.id},
-    #     {'content':'sample question ae', 'category_id':category_animals.id, 'difficulty_id': difficulty_easy.id},
-    #     {'content':"What are female Elephants called?", 'category_id':category_animals.id, 'difficulty_id': difficulty_medium.id},
-    #     {'content':'sample question am', 'category_id':category_animals.id, 'difficulty_id': difficulty_medium.id},
-    #     {'content':'sample question am', 'category_id':category_animals.id, 'difficulty_id': difficulty_medium.id},        
-    #     {'content':"How many toes does a guinea pig have?", 'category_id':category_animals.id, 'difficulty_id': difficulty_hard.id},
-    #     {'content':'sample question ah', 'category_id':category_animals.id, 'difficulty_id': difficulty_hard.id},
-    #     {'content':'sample question ah', 'category_id':category_animals.id, 'difficulty_id': difficulty_hard.id},        
-    #     {'content':'sample question he', 'category_id':category_history.id, 'difficulty_id': difficulty_easy.id},
-    #     {'content':'sample question he', 'category_id':category_history.id, 'difficulty_id': difficulty_easy.id},
-    #     {'content':'sample question he', 'category_id':category_history.id, 'difficulty_id': difficulty_easy.id},
-    #     {'content':'sample question hm', 'category_id':category_history.id, 'difficulty_id': difficulty_medium.id},
-    #     {'content':'sample question hm', 'category_id':category_history.id, 'difficulty_id': difficulty_medium.id},
-    #     {'content':'sample question hm', 'category_id':category_history.id, 'difficulty_id': difficulty_medium.id},
-    #     {'content':'sample question hh', 'category_id':category_history.id, 'difficulty_id': difficulty_hard.id},
-    #     {'content':'sample question hh', 'category_id':category_history.id, 'difficulty_id': difficulty_hard.id},
-    #     {'content':'sample question hh', 'category_id':category_history.id, 'difficulty_id': difficulty_hard.id},
-    #     {'content':'sample question se', 'category_id':category_science.id, 'difficulty_id': difficulty_easy.id},
-    #     {'content':'sample question se', 'category_id':category_science.id, 'difficulty_id': difficulty_easy.id},
-    #     {'content':'sample question se', 'category_id':category_science.id, 'difficulty_id': difficulty_easy.id},
-    #     {'content':'sample question sm', 'category_id':category_science.id, 'difficulty_id': difficulty_medium.id},
-    #     {'content':'sample question sm', 'category_id':category_science.id, 'difficulty_id': difficulty_medium.id},
-    #     {'content':'sample question sm', 'category_id':category_science.id, 'difficulty_id': difficulty_medium.id},
-    #     {'content':'sample question sh', 'category_id':category_science.id, 'difficulty_id': difficulty_hard.id},
-    #     {'content':'sample question sh', 'category_id':category_science.id, 'difficulty_id': difficulty_hard.id},
-    #     {'content':'sample question sh', 'category_id':category_science.id, 'difficulty_id': difficulty_hard.id},
-    # ]
-
+    #ANIMALS
     q1 = Question(content="What are baby kangaroos called?", category_id=category_animals.id, difficulty_id = difficulty_easy.id)
-    q2 = Question(content="sample question ae", category_id=category_animals.id, difficulty_id = difficulty_easy.id)
-    q3 = Question(content="sample question ae", category_id=category_animals.id, difficulty_id = difficulty_easy.id)
+    q2 = Question(content="What is the largest species of penguin?", category_id=category_animals.id, difficulty_id = difficulty_easy.id)
+    q3 = Question(content="How many legs does a spider typically have?", category_id=category_animals.id, difficulty_id = difficulty_easy.id)
+
     q4 = Question(content="What are female Elephants called?", category_id=category_animals.id, difficulty_id = difficulty_medium.id)
-    q5 = Question(content="sample question am", category_id=category_animals.id, difficulty_id = difficulty_medium.id)
-    q6 = Question(content="sample question am", category_id=category_animals.id, difficulty_id = difficulty_medium.id)
+    q5 = Question(content="Which species of sea turtle is the largest and can be found in oceans around the world?", category_id=category_animals.id, difficulty_id = difficulty_medium.id)
+    q6 = Question(content="What is the primary diet of a giant panda?", category_id=category_animals.id, difficulty_id = difficulty_medium.id)
+
     q7 = Question(content="How many toes does a guinea pig have?", category_id=category_animals.id, difficulty_id = difficulty_hard.id)
-    q8 = Question(content="sample question ah", category_id=category_animals.id, difficulty_id = difficulty_hard.id)
-    q9 = Question(content="sample question ah", category_id=category_animals.id, difficulty_id = difficulty_hard.id)
-    q10 = Question(content="sample question he", category_id=category_history.id, difficulty_id = difficulty_easy.id)
-    q11 = Question(content="sample question he", category_id=category_history.id, difficulty_id = difficulty_easy.id)
-    q12 = Question(content="sample question he", category_id=category_history.id, difficulty_id = difficulty_easy.id)
-    q13 = Question(content="sample question hm", category_id=category_history.id, difficulty_id = difficulty_medium.id)
-    q14 = Question(content="sample question hm", category_id=category_history.id, difficulty_id = difficulty_medium.id)
-    q15 = Question(content="sample question hm", category_id=category_history.id, difficulty_id = difficulty_medium.id)
-    q16 = Question(content="sample question hh", category_id=category_history.id, difficulty_id = difficulty_hard.id)
-    q17 = Question(content="sample question hh", category_id=category_history.id, difficulty_id = difficulty_hard.id)
-    q18 = Question(content="sample question hh", category_id=category_history.id, difficulty_id = difficulty_hard.id)
-    q19 = Question(content="sample question se", category_id=category_science.id, difficulty_id = difficulty_easy.id)
-    q20 = Question(content="sample question se", category_id=category_science.id, difficulty_id = difficulty_easy.id)
-    q21 = Question(content="sample question se", category_id=category_science.id, difficulty_id = difficulty_easy.id)
-    q22 = Question(content="sample question sm", category_id=category_science.id, difficulty_id = difficulty_medium.id)
-    q23 = Question(content="sample question sm", category_id=category_science.id, difficulty_id = difficulty_medium.id)
-    q24 = Question(content="sample question sm", category_id=category_science.id, difficulty_id = difficulty_medium.id)
-    q25 = Question(content="sample question sh", category_id=category_science.id, difficulty_id = difficulty_hard.id)
+    q8 = Question(content="Which creature is often referred to as a living fossil, is a species of fish with a prehistoric appearance, and is known for its bony plates?", category_id=category_animals.id, difficulty_id = difficulty_hard.id)
+    q9 = Question(content="What animal is a relative of the manatee and is sometimes referred to as the sea cow?", category_id=category_animals.id, difficulty_id = difficulty_hard.id)
+    #HISTORY
+    q10 = Question(content="Who was the first President of the United States?", category_id=category_history.id, difficulty_id = difficulty_easy.id)
+    q11 = Question(content="Which ancient civilization built the pyramids?", category_id=category_history.id, difficulty_id = difficulty_easy.id)
+    q12 = Question(content="What event marked the start of World War I?", category_id=category_history.id, difficulty_id = difficulty_easy.id)
+
+    q13 = Question(content="Which war is often referred to as the Great War?", category_id=category_history.id, difficulty_id = difficulty_medium.id)
+    q14 = Question(content="Who was the legendary ruler of the Mongol Empire who conquered a large portion of Asia and Europe?", category_id=category_history.id, difficulty_id = difficulty_medium.id)
+    q15 = Question(content="The Industrial Revolution began in which country?", category_id=category_history.id, difficulty_id = difficulty_medium.id)
+
+    q16 = Question(content="Which ancient civilization is credited with developing the world's first known writing system, cuneiform?", category_id=category_history.id, difficulty_id = difficulty_hard.id)
+    q17 = Question(content="The Magna Carta, a historical document that limited the power of the monarchy, was signed in which year?", category_id=category_history.id, difficulty_id = difficulty_hard.id)
+    q18 = Question(content="The Renaissance began in which European city?", category_id=category_history.id, difficulty_id = difficulty_hard.id)
+    #SCIENCE
+    q19 = Question(content="What is the primary gas that makes up Earth's atmosphere?", category_id=category_science.id, difficulty_id = difficulty_easy.id)
+    q20 = Question(content="What force keeps planets in orbit around the Sun?", category_id=category_science.id, difficulty_id = difficulty_easy.id)
+    q21 = Question(content="What is the process by which plants make their own food using sunlight?", category_id=category_science.id, difficulty_id = difficulty_easy.id)
+
+    q22 = Question(content="What is the chemical symbol for gold?", category_id=category_science.id, difficulty_id = difficulty_medium.id)
+    q23 = Question(content="What is the main component of Earth's core?", category_id=category_science.id, difficulty_id = difficulty_medium.id)
+    q24 = Question(content="Which scientist proposed the theory of general relativity?", category_id=category_science.id, difficulty_id = difficulty_medium.id)
+
+    q25 = Question(content="What is the name of the process by which a solid changes directly into a gas without passing through the liquid state?", category_id=category_science.id, difficulty_id = difficulty_hard.id)
     q26 = Question(content="sample question sh", category_id=category_science.id, difficulty_id = difficulty_hard.id)
     q27 = Question(content="sample question sh", category_id=category_science.id, difficulty_id = difficulty_hard.id)
     
@@ -95,38 +73,38 @@ if __name__ == '__main__':
         {"question_id" : q1.id, "content" : "Cubs", "correct_bool" : False},
         {"question_id" : q1.id, "content" : "Kids", "correct_bool" : False},
         {"question_id" : q1.id, "content" : "Phillies", "correct_bool" : False},
-        {"question_id" : q2.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q2.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q2.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q2.id, "content" : "true answer", "correct_bool" : True},
-        {"question_id" : q3.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q3.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q3.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q3.id, "content" : "true answer", "correct_bool" : True},
+        {"question_id" : q2.id, "content" : "Emperor Penguin", "correct_bool" : True},
+        {"question_id" : q2.id, "content" : "King Penguin", "correct_bool" : False},
+        {"question_id" : q2.id, "content" : "Adélie Penguin", "correct_bool" : False},
+        {"question_id" : q2.id, "content" : "Gentoo Penguin", "correct_bool" : False},
+        {"question_id" : q3.id, "content" : "12", "correct_bool" : False},
+        {"question_id" : q3.id, "content" : "8", "correct_bool" : True},
+        {"question_id" : q3.id, "content" : "10", "correct_bool" : False},
+        {"question_id" : q3.id, "content" : "6", "correct_bool" : False},
         {"question_id" : q4.id, "content" : "Hens", "correct_bool" : False},
         {"question_id" : q4.id, "content" : "Ladies", "correct_bool" : False},
         {"question_id" : q4.id, "content" : "Cows", "correct_bool" : True},
         {"question_id" : q4.id, "content" : "Queens", "correct_bool" : False},        
-        {"question_id" : q5.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q5.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q5.id, "content" : "false answer", "correct_bool": False},
-        {"question_id" : q5.id, "content" : "true answer", "correct_bool" : True},
-        {"question_id" : q6.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q6.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q6.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q6.id, "content" : "true answer", "correct_bool" : True},
+        {"question_id" : q5.id, "content" : "Green Turtle", "correct_bool" : False},
+        {"question_id" : q5.id, "content" : "Leatherback Turtle", "correct_bool" : True},
+        {"question_id" : q5.id, "content" : "Loggerhead Turtle", "correct_bool": False},
+        {"question_id" : q5.id, "content" : "Hawksbill Turtle", "correct_bool" : False},
+        {"question_id" : q6.id, "content" : "Fish", "correct_bool" : False},
+        {"question_id" : q6.id, "content" : "Bamboo", "correct_bool" : True},
+        {"question_id" : q6.id, "content" : "Small mammals", "correct_bool" : False},
+        {"question_id" : q6.id, "content" : "Grass", "correct_bool" : False},
         {"question_id" : q7.id, "content" : "12", "correct_bool" : False},
         {"question_id" : q7.id, "content" : "14", "correct_bool" : True},
         {"question_id" : q7.id, "content" : "16", "correct_bool" : False},
         {"question_id" : q7.id, "content" : "20", "correct_bool" : False},        
-        {"question_id" : q8.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q8.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q8.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q8.id, "content" : "true answer", "correct_bool" : True},
-        {"question_id" : q9.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q9.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q9.id, "content" : "false answer", "correct_bool" : False},
-        {"question_id" : q9.id, "content" : "true answer", "correct_bool" : True},
+        {"question_id" : q8.id, "content" : "Sturgeon", "correct_bool" : False},
+        {"question_id" : q8.id, "content" : "Lungfish", "correct_bool" : False},
+        {"question_id" : q8.id, "content" : "Gar", "correct_bool" : False},
+        {"question_id" : q8.id, "content" : "Coelacanth", "correct_bool" : True},
+        {"question_id" : q9.id, "content" : "Humpback Whale", "correct_bool" : False},
+        {"question_id" : q9.id, "content" : "Beluga Whale", "correct_bool" : False},
+        {"question_id" : q9.id, "content" : "Narwhal", "correct_bool" : False},
+        {"question_id" : q9.id, "content" : "Dugong", "correct_bool" : True},
         {"question_id" : q10.id, "content" : "false answer", "correct_bool" : False},
         {"question_id" : q10.id, "content" : "false answer", "correct_bool" : False},
         {"question_id" : q10.id, "content" : "false answer", "correct_bool" : False},

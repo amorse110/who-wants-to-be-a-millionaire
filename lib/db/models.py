@@ -54,6 +54,8 @@ class Category(Base):
     id = Column(Integer, primary_key = True)
     title = Column(String)
 
+    questions = relationship('Question', backref = 'category')
+
 class Difficulty(Base):
     __tablename__ = "difficulties"
     
