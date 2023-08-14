@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from db.models import Game, Question, Answer, Category, Difficulty, Base
+from db.models import Game, Question, Category, Difficulty, GameQuestion, Base
 import random
 
 engine = create_engine('sqlite:///db/game_database.db')
@@ -8,6 +8,9 @@ Session = sessionmaker(bind = engine)
 session = Session()
 
 def setup_game(session: Session):
+    print("Enter your name:")
+    user_name = input("Name: ")
+
     print("Choose a difficulty")
     print("A-Easy")
     print("B-Medium")
@@ -42,16 +45,20 @@ def setup_game(session: Session):
     category = session.query(Category).filter(Category.title == category_level).first()
     # print("Retrieved Category:", category)
     
-    return difficulty.level, category.title
+    return user_name, difficulty.level, category.title
     
-def play_game(session, difficulty, category):
+def play_game(session, user, difficulty, category):
     questions = (
         session.query(Question)
         .join(Category)
         .join(Difficulty)
-        .filter(Difficulty.level == difficulty, Category.title == category)
+        .filter(Difficulty.level == difficulty.level, Category.title == category.title)
         .all()
     )
+
+    new_game = Game(running_score=0, user=user)
+    session.add(new_game)
+    session.commit()
 
     total_questions = len(questions)
     score = 0
@@ -59,6 +66,10 @@ def play_game(session, difficulty, category):
     for _ in range(total_questions):
         random.shuffle(questions)
         question = questions.pop()
+
+        game_question = GameQuestion(game=new_game, question=question)
+        session.add(game_question)
+        session.commit()
 
         print("\nQuestion:", question.content)
         answers = question.answers
@@ -71,6 +82,8 @@ def play_game(session, difficulty, category):
         if answers[user_answer].correct_bool:
             print("Correct!")
             score += 1
+            new_game.running_score = score
+            session.commit()
         else:
             print("Incorrect! The correct answer was:", [a.content for a in answers if a.correct_bool][0])
             break

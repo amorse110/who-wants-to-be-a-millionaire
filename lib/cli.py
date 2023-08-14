@@ -1,14 +1,16 @@
 from sqlalchemy.orm import Session
 from helpers import setup_game, play_game, session
-from db.models import Question
+from db.models import Difficulty, Category
 
 def main():
     print("Welcome to Who Wants to be a Millionaire?")
 
     while True:
-        difficulty, category = setup_game(session)
+        user, difficulty, category = setup_game(session)
         if difficulty and category:
-            score, total_questions = play_game(session, difficulty, category)
+            difficulty_obj = session.query(Difficulty).filter(Difficulty.level == difficulty).first()
+            category_obj = session.query(Category).filter(Category.title == category).first()
+            score, total_questions = play_game(session, user, difficulty_obj, category_obj)
 
             if score == total_questions:
                 print("Congratulations, you've won 1 Million Dollars!")
